@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { localDB } from "../../utils/Helper";
 import type { DataObj } from "../../utils/Interface";
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Input from "./components/Input/Input";
 import List from "./components/list/List";
-import Navbar from "./components/navbar/Navbar";
 import type { DataObj } from "./utils/Interface";
 
 const App: React.FC = () => {
