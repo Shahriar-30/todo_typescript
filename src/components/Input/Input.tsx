@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import { localDB } from "../../utils/Helper";
 import type { DataObj } from "../../utils/Interface";
 
 
-const Input: React.FC = () => {
+interface InputProps {
+  onAdd: (todo: DataObj) => void;
+}
 
+const Input: React.FC<InputProps> = ({ onAdd }) => {
   const [text, setText] = useState<string>("");
 
-  const handelAdd = () => {
+  const handleAdd = (): void => {
     if (!text) return;
     const makeData: DataObj = {
       input: text,
       id: Date.now(),
       status: false,
     };
-    localDB({ localSet: true, data: makeData });
+    onAdd(makeData);
     setText(""); 
   }
 
@@ -30,7 +32,7 @@ const Input: React.FC = () => {
         />
 
         <button className="cursor-pointer px-[30px] py-[8px] rounded-md font-semibold text-white bg-green-400"
-        onClick={handelAdd}>
+        onClick={handleAdd}>
           নতুন লক্ষ
         </button>
       </div>
